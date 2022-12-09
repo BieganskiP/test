@@ -11,6 +11,7 @@ const taskList = document.querySelector("#taskList");
 const taskInput = document.querySelector("#taskAdd");
 
 const clearCompleted = document.querySelector("#clearCompleted");
+const optionsDesktop = document.querySelector("#optionsDesktop");
 
 function updateCounter() {
   counter.innerHTML = taskCounter;
@@ -64,6 +65,7 @@ taskInput.addEventListener("keydown", (event) => {
     } else {
       createTask(taskInput.value);
       updateCounter();
+      taskInput.value = "";
     }
   }
 });
@@ -75,8 +77,7 @@ clearCompleted.addEventListener("click", () => {
   allChecked.forEach((child) => child.parentElement.parentElement.remove());
 });
 
-const optionsDesktop = document.querySelector("#optionsDesktop");
-
+// ==================================
 optionsDesktop.addEventListener("click", (event) => {
   let notTarget = document.querySelectorAll("a");
   notTarget.forEach((el) => el.classList.remove("options--active"));
