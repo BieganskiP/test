@@ -96,24 +96,17 @@ optionsDesktop.addEventListener("click", (event) => {
     allTasks.forEach((el) => {
       if (el.classList.contains("task-tile--completed")) {
         el.classList.add("hidden-tile");
+      } else if (el.classList.contains("task-tile--not-completed")) {
+        el.classList.remove("hidden-tile");
       }
     });
   } else if (target.classList.contains("completed")) {
     allTasks.forEach((el) => {
       if (el.classList.contains("task-tile--not-completed")) {
         el.classList.add("hidden-tile");
+      } else if (el.classList.contains("task-tile--completed")) {
+        el.classList.remove("hidden-tile");
       }
     });
   } else return;
-});
-
-const buttons = document.querySelectorAll(".options--desktop a");
-buttons.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    e.preventDefault();
-    buttons.forEach((elem) => {
-      elem.classList.remove("options--active");
-    });
-    el.classList.add("options--active");
-  });
 });
